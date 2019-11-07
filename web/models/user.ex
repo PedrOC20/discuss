@@ -1,10 +1,10 @@
-defmodule Discuss.User do
+ defmodule Discuss.User do
   use Discuss.Web, :model
 
   schema "users" do
     field :email, :string
     field :provider, :string
-    field :token, ;:string
+    field :token, :string
 
     timestamps()
   end
@@ -12,6 +12,6 @@ defmodule Discuss.User do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:email, :provider, :token])
-    |> validate_required([:title])
+    |> validate_required([:email, :provider, :token])
   end
 end
